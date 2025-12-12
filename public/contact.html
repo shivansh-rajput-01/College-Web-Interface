@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRI Contact Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <style>
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding-top: 80px;
+    }
+
+    .container1 {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .section {
+      display: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="IRI LOGO" height="40px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Courses
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="courses.html#cse">B.Tech – CSE</a></li>
+              <li><a class="dropdown-item" href="courses.html#ai">B.Tech – Robotics & AI</a></li>
+              <li><a class="dropdown-item" href="courses.html#ml">M.Tech – ML</a></li>
+              <li><a class="dropdown-item" href="courses.html#ds">M.S. – Data Science</a></li>
+              <li><a class="dropdown-item" href="courses.html#iot">BS – IoT</a></li>
+              <li><a class="dropdown-item" href="courses.html#robotics">Ph.D – Robotics</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+        <div class="mx-2">
+          <button class="btn btn-success">
+            <a href="login.html" class="text-white text-decoration-none" target="_blank">Login</a>
+          </button>
+          <button class="btn btn-success">
+            <a href="signup.html" class="text-white text-decoration-none" target="_blank">Sign Up</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container1 mt-4">
+    <h2>Contact Us – IRI</h2>
+    <form id="contactForm">
+
+      <label for="purpose">Purpose</label>
+      <select id="purpose" name="purpose" onchange="toggleSections()" required>
+        <option value="">-- Select an option --</option>
+        <option value="doubt">Ask a Doubt</option>
+        <option value="registration">Register for a Course</option>
+      </select>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required />
+
+      <!-- Doubt Section -->
+      <div id="doubtSection" class="section">
+        <label for="query">Your Doubt <span class="text-danger">*</span></label>
+        <textarea id="query" name="query" rows="3" placeholder="Type your question..."></textarea>
+      </div>
+
+      <!-- Registration Section -->
+      <div id="registrationSection" class="section">
+        <label for="course">Select Course</label>
+        <select id="course" name="course">
+          <option value="">-- Select Course --</option>
+          <option>B.Tech – CSE</option>
+          <option>B.Tech – Robotics & AI</option>
+          <option>M.Tech – ML</option>
+          <option>M.S. – Data Science</option>
+          <option>BS – IoT</option>
+          <option>Ph.D – Robotics</option>
+        </select>
+
+        <label for="doc">Upload Document (Optional)</label>
+        <input type="file" id="doc" name="doc" />
+      </div>
+
+      <!-- Feedback (Always visible) -->
+      <label for="feedback">Any Feedback?</label>
+      <textarea id="feedback" name="feedback" rows="3" placeholder="Share your thoughts..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script>
+    function toggleSections() {
+      const purpose = document.getElementById("purpose").value;
+      const doubtSection = document.getElementById("doubtSection");
+      const registrationSection = document.getElementById("registrationSection");
+      const queryField = document.getElementById("query");
+
+      if (purpose === "doubt") {
+        doubtSection.style.display = "block";
+        registrationSection.style.display = "none";
+        queryField.setAttribute("required", "required");
+      } else if (purpose === "registration") {
+        registrationSection.style.display = "block";
+        doubtSection.style.display = "none";
+        queryField.removeAttribute("required");
+      } else {
+        doubtSection.style.display = "none";
+        registrationSection.style.display = "none";
+        queryField.removeAttribute("required");
+      }
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Form submitted successfully!");
+      this.reset();
+      toggleSections(); // Reset sections visibility
+    });
+  </script>
+  <script src="navSwitch.js"></script>
+</body>
+
+</html>

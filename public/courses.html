@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+      a{
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+  class="navbar navbar-expand-lg bg-body-tertiary bg-dark"
+  data-bs-theme="dark"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="logo.png" alt="IRI LOGO" height="40px" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Courses
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="courses.html#cse">B.Tech – CSE</a></li>
+            <li><a class="dropdown-item" href="courses.html#ai">B.Tech – Robotics & AI</a></li>
+            <li><a class="dropdown-item" href="courses.html#ml">M.Tech – ML</a></li>
+            <li><a class="dropdown-item" href="courses.html#ds">M.S. – Data Science</a></li>
+            <li><a class="dropdown-item" href="courses.html#iot">BS – IoT</a></li>
+            <li><a class="dropdown-item" href="courses.html#robotics">Ph.D – Robotics</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      <div class="mx-2">
+        <button class="btn btn-success">
+          <a href="login.html" class="text-white text-decoration-none" target="_blank">Login</a>
+        </button>
+        <button class="btn btn-success">
+          <a href="signup.html" class="text-white text-decoration-none" target="_blank">Sign Up</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- <div class="container">
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="cse">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">B.Tech – Computer Science & Engineering (CSE)</h2>
+      <p class="lead">The B.Tech program in Computer Science & Engineering (CSE) provides students with a solid foundation in computer systems, programming, software development, and algorithm design. Students will engage in hands-on learning in various areas, including artificial intelligence, machine learning, cybersecurity, and software engineering. The course prepares students for a wide range of careers in tech industries.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="f1.png" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="ai">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">B.Tech – Robotics & AI</h2>
+      <p class="lead">The B.Tech program in Robotics & Artificial Intelligence is designed to equip students with advanced knowledge and skills in robotics, machine learning, and AI technologies. Students will gain hands-on experience in designing intelligent systems, automation, and smart robots, making them industry-ready for the rapidly growing fields of robotics and AI.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="f2.png" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="ml">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">M.Tech – ML</h2>
+      <p class="lead">The M.Tech program in Machine Learning (ML) focuses on building a strong foundation in algorithms, data structures, and deep learning. This course prepares students for advanced roles in AI, data science, and ML, with a deep understanding of model development, data analysis, and real-world applications of machine learning techniques.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="fa.jpg" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="ds">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">M.S. – Data Science</h2>
+      <p class="lead">The M.S. in Data Science program is designed to train students in data mining, statistical analysis, and the use of data analytics tools. Students will explore big data technologies and the application of data science techniques in various industries like healthcare, finance, and more. This course aims to develop expertise in data-driven decision-making processes.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="f3.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="iot">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">BS – IoT</h2>
+      <p class="lead">The Bachelor of Science (BS) in IoT focuses on the development of connected devices and smart networks. This course covers sensor technologies, networking, cloud computing, and embedded systems to build the foundation for designing scalable IoT systems. Students will learn to create innovative solutions for the interconnected world.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="f1.png" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="robotics">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Ph.D – Robotics</h2>
+      <p class="lead">The Ph.D. in Robotics offers in-depth research opportunities in robotics, automation, and intelligent systems. Scholars will engage in cutting-edge research to contribute to the development of autonomous robots, AI-powered systems, and advanced robotics technologies. This program emphasizes both theoretical understanding and practical applications in the ever-evolving robotics domain.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="f4.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <!-- B.Tech – Computer Science & Engineering (CSE) -->
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="cse">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">B.Tech – Computer Science & Engineering (CSE)</h2>
+      <p class="lead">The B.Tech program in Computer Science & Engineering (CSE) provides students with a solid foundation in computer systems, programming, software development, and algorithm design. Students will engage in hands-on learning in various areas, including artificial intelligence, machine learning, cybersecurity, and software engineering. The course prepares students for a wide range of careers in tech industries.</p>
+      <ul>
+        <li><strong>Duration:</strong> 8 Semesters (4 Years)</li>
+        <li><strong>Qualification Required:</strong> 12th (PCM) or equivalent</li>
+        <li><strong>Fees per Semester:</strong> ₹80,000</li>
+        <li><strong>Total Fees:</strong> ₹6,40,000</li>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <img src="c1.png" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <!-- B.Tech – Robotics & AI -->
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="ai">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">B.Tech – Robotics & AI</h2>
+      <p class="lead">The B.Tech program in Robotics & Artificial Intelligence is designed to equip students with advanced knowledge and skills in robotics, machine learning, and AI technologies. Students will gain hands-on experience in designing intelligent systems, automation, and smart robots, making them industry-ready for the rapidly growing fields of robotics and AI.</p>
+      <ul>
+        <li><strong>Duration:</strong> 8 Semesters (4 Years)</li>
+        <li><strong>Qualification Required:</strong> 12th (PCM) with IP/IT/CS as an optional subject</li>
+        <li><strong>Fees per Semester:</strong> ₹1,00,000</li>
+        <li><strong>Total Fees:</strong> ₹8,00,000</li>
+      </ul>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="c2.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <!-- M.Tech – ML -->
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="ml">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">M.Tech – ML</h2>
+      <p class="lead">The M.Tech program in Machine Learning (ML) focuses on building a strong foundation in algorithms, data structures, and deep learning. This course prepares students for advanced roles in AI, data science, and ML, with a deep understanding of model development, data analysis, and real-world applications of machine learning techniques.</p>
+      <ul>
+        <li><strong>Duration:</strong> 4 Semesters (2 Years)</li>
+        <li><strong>Qualification Required:</strong> BS in CS or related fields (AI, ML, DS)</li>
+        <li><strong>Fees per Semester:</strong> ₹55,000</li>
+        <li><strong>Total Fees:</strong> ₹2,20,000</li>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <img src="c3.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <!-- M.S. – Data Science -->
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="ds">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">M.S. – Data Science</h2>
+      <p class="lead">The M.S. in Data Science program is designed to train students in data mining, statistical analysis, and the use of data analytics tools. Students will explore big data technologies and the application of data science techniques in various industries like healthcare, finance, and more. This course aims to develop expertise in data-driven decision-making processes.</p>
+      <ul>
+        <li><strong>Duration:</strong> 4 Semesters (2 Years)</li>
+        <li><strong>Qualification Required:</strong> BS in CS or related fields (AI, ML, DS)</li>
+        <li><strong>Fees per Semester:</strong> ₹55,000</li>
+        <li><strong>Total Fees:</strong> ₹2,20,000</li>
+      </ul>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="c4.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <!-- BS – IoT -->
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="iot">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">BS – IoT</h2>
+      <p class="lead">The Bachelor of Science (BS) in IoT focuses on the development of connected devices and smart networks. This course covers sensor technologies, networking, cloud computing, and embedded systems to build the foundation for designing scalable IoT systems. Students will learn to create innovative solutions for the interconnected world.</p>
+      <ul>
+        <li><strong>Duration:</strong> 8 Semesters (4 Years)</li>
+        <li><strong>Qualification Required:</strong> 12th (PCM)</li>
+        <li><strong>Fees per Semester:</strong> ₹50,000</li>
+        <li><strong>Total Fees:</strong> ₹4,00,000</li>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <img src="c5.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <!-- Ph.D – Robotics -->
+  <div class="row featurette d-flex justify-content-center align-items-center my-4" id="robotics">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Ph.D – Robotics</h2>
+      <p class="lead">The Ph.D. in Robotics offers in-depth research opportunities in robotics, automation, and intelligent systems. Scholars will engage in cutting-edge research to contribute to the development of autonomous robots, AI-powered systems, and advanced robotics technologies. This program emphasizes both theoretical understanding and practical applications in the ever-evolving robotics domain.</p>
+      <ul>
+        <li><strong>Duration:</strong> 10 Semesters (5 Years)</li>
+        <li><strong>Qualification Required:</strong> MS/M.Tech in Robotics, AI, ML, or IoT</li>
+        <li><strong>Fees per Semester:</strong> ₹10,000</li>
+        <li><strong>Total Fees:</strong> ₹1,00,000</li>
+      </ul>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="c6.avif" alt="image" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+  <div class="container">
+    <span class="text-body-secondary" style="text-align: center"
+      >All rights are reserved. IRI corporation</span
+    >
+  </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="navSwitch.js"></script>
+  </body>
+</html>

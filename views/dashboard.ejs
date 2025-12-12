@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+      body {
+        background-color: #181b33;
+        transition: all 0.1s linear;
+      }
+
+      /* Sidebar Styling */
+      /* dark mode */
+      #darkSideBar {
+        min-height: 100vh;
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), purple);
+        color: white;
+        padding-top: 20px;
+      }
+
+      #darkSideBar a {
+        color: #cfd8dc;
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid #4b545c;
+      }
+
+      #darkSideBar a:hover {
+        background: rgba(10, 10, 10, 0.1);
+        color: white;
+        border-left: 4px solid white;
+      }
+
+      /* light mode */
+      #lightSideBar {
+        min-height: 100vh;
+        background: #343a40;
+        color: white;
+        padding-top: 20px;
+      }
+
+      #lightSideBar a {
+        color: #cfd8dc;
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid #4b545c;
+      }
+
+      #lightSideBar a:hover {
+        background: #495057;
+        color: white;
+        border-left: 4px solid #28a745;
+      }
+
+      .main-content {
+        padding: 40px;
+        text-align: center;
+      }
+
+      .role-badge {
+        background-color: #ffc107;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      /* --- NIGHT MODE CONSTRUCTION CARD CSS --- */
+      #content-area {
+        min-height: 450px;
+        background-color: #0d1a26;
+        /* Tera Dark Blue Color */
+        color: #ffffff;
+        /* Text White */
+        border-radius: 15px;
+        position: relative;
+        /* Stars ko adjust karne ke liye */
+        overflow: hidden;
+        /* Taaki stars box ke bahar na jayein */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        /* Deep shadow */
+      }
+
+      /* Star Styling */
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: twinkle infinite alternate;
+      }
+
+      /* Twinkle Animation */
+      @keyframes twinkle {
+        from {
+          opacity: 0.2;
+          transform: scale(0.8);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1.2);
+          box-shadow: 0 0 5px white;
+        }
+      }
+
+      /* Content ko stars ke upar rakhne ke liye */
+      .content-overlay {
+        z-index: 10;
+        position: relative;
+      }
+
+      h2 {
+        color: white;
+        font-weight: 100;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .mode {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+      }
+
+      #darkSideBar,
+      #lightSideBar {
+        transition: 0.4s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <button class="mode" id="dark">🌙</button>
+      <div class="row">
+        <div class="col-md-2 sidebar" id="darkSideBar">
+          <div class="text-center mb-4">
+            <h4>Dashboard</h4>
+            <span class="role-badge"> <%= role.toUpperCase() %> </span>
+          </div>
+          <a href="/index.html">🏠 Back to Home</a>
+          <% if (role==='student' ) { %>
+          <a href="#" onclick="showMsg('Personal Info')"
+            >👤 Personal Information</a
+          >
+          <a href="#" onclick="showMsg('Performance Analysis')"
+            >📈 Performance & Remarks</a
+          >
+          <a href="#" onclick="showMsg('Marks & Resume')">📄 Marks & Resume</a>
+          <a href="#" onclick="showMsg('Rate Curriculum')"
+            >⭐ Rate University/Teachers</a
+          >
+          <% } else if (role==='teacher' ) { %>
+          <a href="#" onclick="showMsg('Teacher Data')"
+            >📁 My Data & Experience</a
+          >
+          <a href="#" onclick="showMsg('Student Ratings')"
+            >📊 Active Student Ratings</a
+          >
+          <a href="#" onclick="showMsg('Give Remarks')"
+            >✍️ Give Student Remarks</a
+          >
+          <a href="#" onclick="showMsg('Parent Complaints')"
+            >📢 Parent Complaints</a
+          >
+          <% } %>
+          <a href="#" id="logoutBtn" class="text-warning mt-5">🚪 Logout</a>
+        </div>
+
+        <div class="col-md-2 sidebar hide" id="lightSideBar">
+          <div class="text-center mb-4">
+            <h4>Dashboard</h4>
+            <span class="role-badge"> <%= role.toUpperCase() %> </span>
+          </div>
+          <a href="/index.html">🏠 Back to Home</a>
+          <% if (role==='student' ) { %>
+          <a href="#" onclick="showMsg('Personal Info')"
+            >👤 Personal Information</a
+          >
+          <a href="#" onclick="showMsg('Performance Analysis')"
+            >📈 Performance & Remarks</a
+          >
+          <a href="#" onclick="showMsg('Marks & Resume')">📄 Marks & Resume</a>
+          <a href="#" onclick="showMsg('Rate Curriculum')"
+            >⭐ Rate University/Teachers</a
+          >
+          <% } else if (role==='teacher' ) { %>
+          <a href="#" onclick="showMsg('Teacher Data')"
+            >📁 My Data & Experience</a
+          >
+          <a href="#" onclick="showMsg('Student Ratings')"
+            >📊 Active Student Ratings</a
+          >
+          <a href="#" onclick="showMsg('Give Remarks')"
+            >✍️ Give Student Remarks</a
+          >
+          <a href="#" onclick="showMsg('Parent Complaints')"
+            >📢 Parent Complaints</a
+          >
+          <% } %>
+          <a href="#" id="logoutBtn1" class="text-warning mt-5">🚪 Logout</a>
+        </div>
+
+        <div class="col-md-10 main-content">
+          <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2>Welcome, <%= name %>!</h2>
+            <button class="btn btn-outline-light btn-sm" id="userBtn">
+              <%= username %>
+            </button>
+          </div>
+
+          <div id="content-area">
+            <div class="content-overlay">
+              <lottie-player
+                src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json"
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px"
+                loop
+                autoplay
+              >
+              </lottie-player>
+
+              <h2 class="mt-3 text-warning">🚧 Work in Progress 🚧</h2>
+              <p class="lead">This section is currently under construction.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // mode switch logic
+      let mode = document.querySelector(".mode");
+      let lightSideBar = document.querySelector("#lightSideBar");
+      let darkSideBar = document.querySelector("#darkSideBar");
+      const container = document.getElementById("content-area");
+      mode.addEventListener("click", () => {
+        if (mode.getAttribute("id") == "dark") {
+          mode.setAttribute("id", "light");
+          mode.innerText = "☀️";
+          document.querySelector("body").style.backgroundColor = "white";
+          document
+            .querySelector("#userBtn")
+            .classList.remove("btn-outline-light");
+          document.querySelector("#userBtn").classList.add("btn-outline-dark");
+          document.querySelector("h2").style.color = "black";
+          darkSideBar.classList.add("hide");
+          lightSideBar.classList.remove("hide");
+          container.style.backgroundColor = "white";
+          container.style.color = "black";
+        } else if (mode.getAttribute("id") == "light") {
+          mode.setAttribute("id", "dark");
+          mode.innerText = "🌙";
+          document.querySelector("body").style.backgroundColor = "#181b33";
+          document.querySelector("#userBtn").classList.add("btn-outline-light");
+          document
+            .querySelector("#userBtn")
+            .classList.remove("btn-outline-dark");
+          document.querySelector("h2").style.color = "white";
+          darkSideBar.classList.remove("hide");
+          lightSideBar.classList.add("hide");
+          container.style.backgroundColor = "#0d1a26";
+          container.style.color = "white";
+        }
+      });
+
+      // Logout Logic
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "/index.html";
+      });
+      document.getElementById("logoutBtn1").addEventListener("click", () => {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "/index.html";
+      });
+
+      function showMsg(feature) {
+        console.log("Clicked:", feature);
+      }
+
+      // --- STAR GENERATOR SCRIPT ---
+      // Ye script automatic 50 stars banayegi aur twinkle effect degi
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("content-area");
+        const starCount = 100; // Kitne taare chahiye
+
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement("div");
+          star.classList.add("star");
+
+          // Random Position
+          const x = Math.random() * 100;
+          const y = Math.random() * 100;
+
+          // Random Size (Tiny to Small)
+          const size = Math.random() * 3 + 1; // 1px to 4px
+
+          // Random Animation Duration (Sab alag speed pe chamkenge)
+          const duration = Math.random() * 2 + 1; // 1s to 3s
+
+          star.style.left = `${x}%`;
+          star.style.top = `${y}%`;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          star.style.animationDuration = `${duration}s`;
+
+          container.appendChild(star);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Login</h2>
+      <form id="loginForm" class="mx-auto" style="max-width: 500px">
+        
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" id="loginUsername" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" id="loginPassword" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success w-100">Login Now</button>
+        <div class="text-center mt-3">
+          Don’t have an account? <a href="signup.html">Sign Up here</a>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("loginForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        
+        // Sirf Username aur Password bhej rahe hain
+        const loginData = {
+          username: document.getElementById("loginUsername").value,
+          password: document.getElementById("loginPassword").value
+        };
+
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(loginData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+              // Server ab hamein batayega ki user ka Role kya hai
+              alert(`Welcome ${result.user.name} (${result.user.role})!`);
+              
+              localStorage.setItem('loggedInUser', JSON.stringify(result.user));
+              window.location.href = 'index.html'; 
+            } else {
+              alert(result.message);
+            }
+        } catch (err) {
+            alert("Login Failed: Server Error");
+        }
+      });
+    </script>
+  </body>
+</html>
