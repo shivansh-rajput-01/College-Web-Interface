@@ -1,35 +1,38 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config();
+
+const connectDB = require('./config/db');  
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+// Connect DB
+connectDB();  
 
 // Set EJS
 app.set('view engine', 'ejs');
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/collegeProject')
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
-
 // Schema
+const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
-    name: String,
-    username: { type: String, unique: true },
-    email: { type: String, unique: true },
-    mobile: String,
-    password: String,
-    role: String
+  name: String,
+  username: { type: String, unique: true },
+  email: { type: String, unique: true },
+  mobile: String,
+  password: String,
+  role: String
 });
 
 const User = mongoose.model('User', UserSchema);
+
 
 // --- ROUTES ---
 
